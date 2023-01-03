@@ -11,9 +11,6 @@ const getCoordinates = async (placeId: string): Promise<coordinates> =>
     .then((response: any): any => {
       const { location } = response.results[0].geometry;
       return { lat: location.lat(), lng: location.lng() };
-    })
-    .catch(() => {
-      return { lat: null, lng: null };
     });
 
 interface prediction {
@@ -31,9 +28,9 @@ const getPlaces = async (input: string): Promise<prediction[]> => {
           return { description, placeId };
         }
       );
-      return reducedPredictions;
-    })
-    .catch(() => []);
+      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+      return reducedPredictions || [];
+    });
 };
 
 export { api, getCoordinates, getPlaces };

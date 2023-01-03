@@ -10,7 +10,7 @@ const _App = ({ Component, pageProps }: AppProps): JSX.Element => {
     <>
       <Head>
         <meta charSet="utf-8" />
-        <link rel="icon" href="/favicon.ico" />
+        <link href="/favicon.ico" rel="icon" />
         <title>Bastián Paredes</title>
       </Head>
       <Component {...pageProps} />

@@ -19,9 +19,6 @@ const getWeather = async (lat: number, lon: number): Promise<weatherType> => {
       const { temp } = json.current;
       const { icon, main, description } = json.current.weather[0];
       return { description, icon, main, temp };
-    })
-    .catch(() => {
-      return {};
     });
 };
 

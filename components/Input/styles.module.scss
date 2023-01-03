@@ -1,0 +1,57 @@
+$height: 30px;
+
+.container {
+  display: flex;
+  margin: 10px;
+}
+
+.inputContainer {
+  height: $height;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  padding-left: $height/3;
+  border-radius: $height/2 0 0 $height/2;
+}
+
+.input {
+  border: none;
+  outline: none;
+  padding: 0;
+}
+
+.eraserButton {
+  width: $height / 1.3;
+  height: $height / 1.3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 2px;
+  background: none;
+  border-radius: 50%;
+  padding: 3px;
+  border: 0;
+  cursor: pointer;
+  &:hover {
+    background: rgb(0, 0, 0, .3);
+  }
+}
+
+.hiddenEraserButton {
+  visibility: hidden;
+}
+
+.button {
+  height: $height;
+  padding-left: 10px;
+  padding-right: $height/4;
+  border-width: 1px;
+  border-style: solid solid solid none;
+  border-radius: 0 $height/2 $height/2 0;
+  cursor: pointer;
+}
+
+.iconContainer {
+  display: flex;
+}
+

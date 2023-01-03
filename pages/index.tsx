@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 import { Loader } from 'bastianparedes/components';
+import Input from 'components/Input';
 import { getCoordinates, getPlaces } from 'utils/google';
-import { weatherType } from 'utils/openWeather';
 
 import ErrorModal from '../components/ErrorModal';
 import Place from '../components/Place';
@@ -44,8 +44,12 @@ const Index = (): JSX.Element => {
       .then((predictions) => {
         setPlaces(() => predictions);
       })
-      .catch(() => setShowErrorModal(true))
-      .finally(() => setShowLoader(false));
+      .catch(() => {
+        setShowErrorModal(true);
+      })
+      .finally(() => {
+        setShowLoader(false);
+      });
   };
 
   const handleOnSubmitWeather = (event: React.FormEvent): void => {
@@ -69,8 +73,12 @@ const Index = (): JSX.Element => {
         setWeather(() => ({ description, icon, main, placeName, temp }));
         setShowLoader(() => false);
       })
-      .catch(() => setShowErrorModal(true))
-      .finally(() => setShowLoader(false));
+      .catch(() => {
+        setShowErrorModal(true);
+      })
+      .finally(() => {
+        setShowLoader(false);
+      });
   };
 
   return (
@@ -78,18 +86,15 @@ const Index = (): JSX.Element => {
       {showErrorModal && <ErrorModal setModalVisible={setShowErrorModal} />}
       {showLoader && <Loader />}
       <form onSubmit={handleOnSubmitPlace}>
-        <input type="text" name="place" placeholder="Ingresa una ciudad" />
-        <button type="submit" value="Enviar">
-          Buscar
-        </button>
+        <Input name="place" placeholder="Ingresa una ciudad" />
       </form>
       <form onSubmit={handleOnSubmitWeather}>
         {places.map((place) => {
           return (
             <Place
+              description={place.description}
               key={place.placeId}
               placeId={place.placeId}
-              description={place.description}
             />
           );
         })}

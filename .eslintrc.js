@@ -60,6 +60,7 @@ const eslintrc = {
     ],
     quotes: ['warn', 'single'],
     'react/display-name': 'off',
+    'react/jsx-sort-props': 1,
     semi: ['warn', 'always'],
     'sort-imports': ['warn', { ignoreCase: true, ignoreDeclarationSort: true }],
     'sort-keys': [

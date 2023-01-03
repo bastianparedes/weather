@@ -19,7 +19,7 @@ const WeatherCard = ({
   return (
     <div className={styles.container}>
       <h1>{placeName}</h1>
-      <img className={styles.container} src={urlIcon} alt={icon} />
+      <img alt={icon} className={styles.container} src={urlIcon} />
       <h2>{main}</h2>
       <h3>{temp} °C</h3>
       <p>{description}</p>
