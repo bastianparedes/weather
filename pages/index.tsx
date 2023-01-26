@@ -7,6 +7,7 @@ import { getCoordinates, getPlaces } from 'utils/google';
 import ErrorModal from '../components/ErrorModal';
 import Place from '../components/Place';
 import WeatherCard, { weatherCardPropsType } from '../components/WeatherCard';
+import { basePath } from '../next.config';
 
 interface typeElements extends HTMLFormControlsCollection {
   place: { value: string };
@@ -63,7 +64,7 @@ const Index = (): JSX.Element => {
     const placeName = nativeEvent.submitter.innerText;
     void getCoordinates(placeId)
       .then(async ({ lat, lng }) => {
-        return await fetch('/api/weather', {
+        return await fetch(String(basePath) + '/api/weather', {
           body: JSON.stringify({ lat, lng }),
           method: 'POST'
         });
